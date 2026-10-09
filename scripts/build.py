@@ -3,6 +3,7 @@
 from pathlib import Path
 from html import escape
 import json
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -48,7 +49,9 @@ def render_all():
 <footer class="site-footer"><div class="footer-top"><div><a class="wordmark" href="index.html"><img src="assets/days-and-dues-logo.png" width="42" height="42" alt=""><span>Days <i>&amp;</i> Dues</span></a><p>Your days. Your dues.<br>A little less admin.</p></div><nav aria-label="Explore"><span class="eyebrow">Explore</span>{a('features.html','The app')}{a('for-your-work.html','For your work')}{a('how-it-works.html','How it works')}{a('pricing.html','Pricing')}</nav><nav aria-label="Help and information"><span class="eyebrow">Good to know</span>{a('faq.html','Questions')}{a('support.html','Support')}{a('privacy.html','Privacy')}{a('terms.html','Terms')}</nav><div class="footer-note"><span class="eyebrow">Made for independent work</span><p>An iPhone home for clients, work, time and money.</p><a class="text-link" href="{config['app_store_url']}">View on the App Store ↗</a></div></div><div class="footer-bottom"><span>© 2026 Nathan Cole · Days &amp; Dues</span><span>Invoices in GBP. Tax estimates use UK sole-trader rules.</span><a href="sitemap.xml">Sitemap</a></div></footer>
 </body></html>'''
         # The error page must resolve assets and navigation from nested missing URLs.
-        if file=='404.html': doc=doc.replace('<head>','<head><base href="'+base+'">')
+        # Use absolute paths instead of <base>, so the skip link stays on the missing URL.
+        if file=='404.html':
+            doc=re.sub(r'(href|src)="(?![a-z]+:|#|//)([^"]+)"', lambda match: f'{match[1]}="{base}{match[2]}"', doc)
         (ROOT/file).write_text(doc)
     sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{escape(url(p["file"]))}</loc><lastmod>{config["updated"]}</lastmod></url>\n' for p in pages)+'</urlset>\n'
     (ROOT/'sitemap.xml').write_text(sitemap)

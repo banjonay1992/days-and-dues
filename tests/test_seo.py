@@ -122,6 +122,14 @@ class SearchAndNavigationTests(unittest.TestCase):
         for icon in manifest['icons']:
             self.assertTrue((ROOT / icon['src']).is_file())
 
+    def test_missing_nested_urls_have_working_assets_and_same_page_skip_link(self):
+        page = Document(ROOT / '404.html')
+        self.assertNotIn('<base', (ROOT / '404.html').read_text())
+        self.assertIn('#main', [link.get('href') for link in page.links])
+        self.assertIn('main', page.ids)
+        for href in [link.get('href', '') for link in page.links] + page.resources:
+            self.assertTrue(href.startswith(('https://', '#')), href)
+
     def test_checked_in_output_matches_a_fresh_build(self):
         spec = importlib.util.spec_from_file_location('site_builder', ROOT / 'scripts/build.py')
         builder = importlib.util.module_from_spec(spec)

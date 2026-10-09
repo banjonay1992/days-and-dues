@@ -16,6 +16,8 @@ python3 -m http.server 8766 --bind 127.0.0.1
 
 Commit the generated HTML, sitemap and manifest alongside their source files. GitHub Pages publishes the root of `main`; `.nojekyll` keeps this a plain static site. The site needs no analytics, remote fonts, browser database, form service or third-party scripts.
 
+`tests/browser_checks.js` is a runnable Playwright page function. Open the preview or live homepage, then execute it through the Playwright browser tool. It checks all nine pages at 320, 390, 768 and 1440 pixels, image loading, overflow, the tour's mouse/keyboard controls, mobile menu navigation and focus, FAQ toggles, note-card contrast and console failures.
+
 ## Release and pricing accuracy
 
 `site.json` records the canonical URL, page metadata and `release_state`. The October 9, 2026 website describes iPhone version 3.0.0, which is awaiting Apple review and manual release. The existing App Store link may show the previous release. Remove the release notice and update corresponding page copy only once the new version is actually public. Screenshots contain example records.
