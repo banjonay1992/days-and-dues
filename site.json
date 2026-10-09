@@ -1,0 +1,20 @@
+{
+  "name": "Days & Dues",
+  "url": "https://banjonay1992.github.io/days-and-dues/",
+  "email": "nayproductionshq@gmail.com",
+  "app_store_url": "https://apps.apple.com/app/id6767514612",
+  "release_state": "in_review",
+  "version": "3.0.0",
+  "updated": "2026-10-09",
+  "pages": [
+    {"file":"index.html","title":"Days & Dues — An iPhone app for self-employed work","description":"Keep clients, work, time, expenses and invoices together with Days & Dues. A calmer iPhone app for freelancers, sole traders and self-employed people.","label":"Home"},
+    {"file":"features.html","title":"Clients, time, expenses & invoices — Days & Dues","description":"Explore Days & Dues: plan projects and appointments, log your day by voice or text, track expenses and create invoices from one iPhone workspace.","label":"The app"},
+    {"file":"for-your-work.html","title":"For freelancers & self-employed people — Days & Dues","description":"From creative projects and consulting to tutoring and local services, Days & Dues keeps your clients, appointments, time and invoices in one place.","label":"For your work"},
+    {"file":"how-it-works.html","title":"From your first client to your invoice — Days & Dues","description":"See how to set up Days & Dues, add a client, plan work, record time and expenses, and create an invoice. A simple routine for self-employed admin.","label":"How it works"},
+    {"file":"pricing.html","title":"Pricing & the 3-day no-card trial — Days & Dues","description":"Try Days & Dues Pro for three days without a card or automatic charge. Choose the optional £7.99 monthly UK subscription in the app when you are ready.","label":"Pricing"},
+    {"file":"faq.html","title":"Days & Dues questions — Trial, invoices & the new app","description":"Answers about Days & Dues, the new iPhone update, existing accounts, the no-card trial, subscriptions, AI, currencies and working away from a site.","label":"Questions"},
+    {"file":"support.html","title":"Days & Dues support — Accounts, billing & app help","description":"Get help with Days & Dues, restore a subscription, find your records or delete your account. Contact support at nayproductionshq@gmail.com.","label":"Support"},
+    {"file":"privacy.html","title":"Privacy policy — Days & Dues","description":"How Days & Dues uses account and work information, cloud services, AI processing and optional usage statistics, and how to manage or delete your data.","label":"Privacy"},
+    {"file":"terms.html","title":"Terms of use — Days & Dues","description":"Read the Days & Dues terms for recording self-employed work, checking invoices and estimates, managing Apple subscriptions and contacting support.","label":"Terms"}
+  ]
+}
